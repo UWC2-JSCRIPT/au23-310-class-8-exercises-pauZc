@@ -12,3 +12,17 @@ myPromise
     console.log(number);
   });
 
+const randomNumberPromise = new Promise((res, rej) =>{
+  setTimeout(() => {
+    const randomVal = Math.random()
+    if( randomVal > 0.5 ){
+      res(randomVal)
+    }else if(randomVal <= 0.5){
+      rej(randomVal)
+    }
+  }, 1000);
+})
+
+randomNumberPromise.then((value) => {
+  console.log('Success')
+})
