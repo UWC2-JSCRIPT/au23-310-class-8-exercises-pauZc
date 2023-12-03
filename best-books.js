@@ -38,11 +38,31 @@ async function getBestSellers(url) {
     if(bookNo > 4) break
 
     const listItem = document.createElement("li");
-    listItem.append(`
-      ${document.createElement("strong").textContent = book.title}
-       - Author: ${document.createElement("i").textContent = book.author}
-        - Description: ${document.createElement("span").textContent = book.description}`
-        )
+    let image = document.createElement("img")
+    image.src = book.book_image
+    image.width = 128
+    const divimage = document.createElement("div")
+    divimage.appendChild(image)
+
+    let title = document.createElement("strong")
+    title.textContent = book.title
+
+    let author = document.createElement("p")
+    let authorName = document.createElement("i")
+    authorName.textContent = book.author
+    author.appendChild(authorName)
+
+    const description = document.createElement("p")
+    description.textContent = book.description
+
+    let divInfo = document.createElement("div")
+    divInfo.appendChild(title)
+    divInfo.appendChild(author)
+    divInfo.appendChild(description)
+
+    listItem.appendChild(divimage)
+    listItem.appendChild(divInfo)
+
     
     ulElement.appendChild(listItem)
   }
